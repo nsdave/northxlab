@@ -38,4 +38,6 @@ const UserSchema = new Schema({
 
 const User = models?.User || model("User", UserSchema);
 
+console.log(User, 'new or existiing user')
+
 export default User;
