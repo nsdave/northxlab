@@ -3,14 +3,12 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 // export default clerkMiddleware();
 
 const isProtectedRoute = createRouteMatcher([ 
-    '/'
+    '/profile'
     // '/forum(.*)',
   ]);
   
   export default clerkMiddleware((auth, req) => {
     if (isProtectedRoute(req)) auth().protect();
-
-    publicRoutes: ['/api/webhooks/clerk']
   });
 
 export const config = {
