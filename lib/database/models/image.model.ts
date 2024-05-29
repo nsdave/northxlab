@@ -4,7 +4,7 @@ export interface IIMage extends Document {
     title: string;
     transformationType: string;
     publicId: string;
-    secureUrl: string;
+    secureURL: string;
     width?: number;
     height?: number;
     config?: object;
@@ -12,7 +12,7 @@ export interface IIMage extends Document {
     aspectRatio?: string;
     color?: string;
     prompt?: string;
-    author: {
+    author?: {
         _id: string;
         firstName: string;
         lastName: string;
@@ -26,11 +26,11 @@ const ImageSchema = new Schema({
     title: { type: String, require: true },
     transformationType: { type: String, required: true },
     publicId: { type: String, required: true },
-    secureUrl: { type: URL, required: true },
+    secureURL: { type: String, required: true },
     width: { type: Number },
     height: { type: Number },
     config: { type: Object },
-    transformationUrl: { type: URL },
+    transformationUrl: { type: String },
     aspectRatio: { type: String },
     color: { type: String },
     prompt: { type: String },
