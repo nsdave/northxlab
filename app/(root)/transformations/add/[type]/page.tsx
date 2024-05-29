@@ -6,8 +6,8 @@ import React from 'react'
 const AddTransformationTypePage = ({ params: { type } }: SearchParamProps) => {
   const transfromation = transformationTypes[type]
 
-  return (
-    <>
+  return ( 
+    <> 
       <Header 
         title={transfromation.title}
         subtitle={transfromation.subTitle}
