@@ -7,6 +7,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
+    SheetFooter
   } from "@/components/ui/sheet"
 import { navLinks } from "@/constants"
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
@@ -14,6 +15,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "../ui/button"
+import { TbMenuDeep } from "react-icons/tb";
   
 
 const MobileNav = () => {
@@ -26,31 +28,28 @@ const MobileNav = () => {
         className="flex items-center gap-2 md:py-2"
         >
             <Image
-            src={"/assets/images/logo-full.png"} 
+            src={"/assets/images/lab_logo.png"} 
             alt="logo"
-            width={180}
-            height={28}
+            width={160}
+            height={24}
             />
         </Link>
 
         <nav className="flex gap-2" >
-            <SignedIn>
+            <div>
                 <UserButton afterSignOutUrl="/" />
 
                 <Sheet>
                     <SheetTrigger>
-                        <Image 
-                        src={'/assets/icons/menu.svg'}
-                        alt="menu"
-                        width={32}
-                        height={32}
-                        className="cursor-pointer"
+                        <TbMenuDeep 
+                        size={34}
+                        className="text-kasutamu-200 cursor-pointer mt-2"
                         />
                     </SheetTrigger>
-                    <SheetContent className="sheet-content sm:w-64" >
+                    <SheetContent className="sheet-content sm:w-64 z-[999]" >
                         <>
                             <Image 
-                            src={"/assets/images/logo-full.png"}
+                            src={"/assets/images/lab_logo.png"}
                             alt="logo"
                             width={152}
                             height={23}
@@ -64,7 +63,7 @@ const MobileNav = () => {
                                         return (
                                             <li
                                             key={link.route}
-                                            className={`${ isActive && 'gradient-text'}
+                                            className={`${ isActive && 'bg-kasutamu-500 w-full'}
                                             p-18 flex whitespace-nowrap text-dark-700
                                             `}
                                             >
@@ -72,30 +71,36 @@ const MobileNav = () => {
                                                 className="sidebar-link" 
                                                 href={link.route}
                                                 >
-                                                    <Image 
-                                                    src={link.icon}
-                                                    alt="icon"
-                                                    width={24}
-                                                    height={24}
-                                                    />
                                                     {link.label}
                                                 </Link>
                                             </li>
                                         )
                                     })
                                 }
-                        </ul>
+                            </ul>
+
+                            <div className="border-y border-kasutamu-600 py-6 my-5" >
+                                <div className="px-4 py-3 bg-kasutamu-400 shadow-sm" >
+                                    <h1>More features coming soon 🚧👷💻</h1>
+                                </div>
+                            </div>
+
+                            <div className="mb-3" >
+                                <p className="text-sm text-[#64748B]" >
+                                    © 2024 North X Studio
+                                </p>
+                            </div>
                         </>
                     </SheetContent>
                 </Sheet>
 
-            </SignedIn>
+            </div>
 
-            <SignedOut>
+            {/* <SignedOut>
                 <Button asChild className="button bg-purple-gradient bg-cover" >
                     <Link href={'/sign-in'} >Login</Link>
                 </Button>
-            </SignedOut>
+            </SignedOut> */}
         </nav>
     </header>
   )

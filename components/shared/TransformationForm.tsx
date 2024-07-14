@@ -184,7 +184,7 @@ const TransformationForm = ({ action, data = null , type, config = null} : Trans
 
   return (
     <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-8">
             <CustomField  
             control={form.control}
             name="title"
@@ -312,16 +312,16 @@ const TransformationForm = ({ action, data = null , type, config = null} : Trans
                 }
                 onClick={onTransformHandler}
                 >
-                    { isTransforming ? 'Transforming...' : 'Apply Transformation' }
+                    { isTransforming ? 'Modifying ...' : 'Apply Modification' }
                 </Button>
-
+{/* 
                 <Button
                 type="submit"
                 className="submit-button capitalize"
                 disabled={isSubmitting}
                 >
                     { isSubmitting ? 'Submitting...' : 'Save Image' }
-                </Button>
+                </Button> */}
             </div>
 
 

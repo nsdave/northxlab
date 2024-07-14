@@ -5,6 +5,7 @@ import { dataUrl, getImageSize } from "@/lib/utils";
 import { CldImage, CldUploadWidget } from "next-cloudinary"
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
+import { BsFillPlusSquareFill } from "react-icons/bs";
 
 type MediaUploaderProps = {
   onValueChange: (value: string) => void;
@@ -63,7 +64,7 @@ const MediaUploader = ({
     >
       {({ open }) => (
         <div className="flex flex-col gap-4">
-          <h3 className="h3-bold text-dark-600">
+          <h3 className="h3-bold text-kasutamu-300">
             Original
           </h3>
 
@@ -84,14 +85,12 @@ const MediaUploader = ({
           ): (
             <div className="media-uploader_cta" onClick={() => open()}>
               <div className="media-uploader_cta-image">
-                <Image 
-                  src="/assets/icons/add.svg"
-                  alt="Add Image"
-                  width={24}
-                  height={24}
+                <BsFillPlusSquareFill 
+                size={26}
+                className="text-kasutamu-200"
                 />
               </div>
-                <p className="p-14-medium">Click here to upload image</p>
+                <p className="p-14-medium text-kasutamu-200">Click here to upload image</p>
             </div>
           )}
         </div>
